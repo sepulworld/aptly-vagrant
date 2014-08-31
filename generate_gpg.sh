@@ -2,7 +2,7 @@
 
 apt-get -y install rng-tools
 echo "HRNGDEVICE=/dev/urandom" > /etc/default/rng-tools
-service rng-tools start
+service rng-tools restart
 
 cat >/vagrant_data/vagrant_key <<EOF
           %echo Generating a basic OpenPGP key
