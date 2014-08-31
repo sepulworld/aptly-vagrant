@@ -13,6 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 # Puppet
   config.vm.synced_folder "puppet/modules", "/tmp/vagrant-puppet/puppet/modules"
+  config.vm.provision "shell", inline: "mkdir /vagrant_data"
   config.vm.provision "shell", path: "generate_gpg.sh"
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "puppet/manifests"
