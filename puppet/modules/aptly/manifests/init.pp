@@ -30,7 +30,7 @@
 class aptly (
   $package_ensure = present,
   $config = { 
-    rootDir                     => "/vagrant_data/.aptly",
+    rootDir                     => "/vagrant/.aptly",
     architectures               => [],
     dependencyFollowSuggests    => false,
     dependencyFollowRecommends  => false,
