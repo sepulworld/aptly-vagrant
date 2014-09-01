@@ -26,3 +26,5 @@ else
     echo "Nginx should be serving up the public directory where your stable and test debs live"
 fi
 
+aptly publish update testing-repo
+aptly publish update stable-repo 
