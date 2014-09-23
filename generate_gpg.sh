@@ -6,7 +6,7 @@ echo "HRNGDEVICE=/dev/urandom" > /etc/default/rng-tools
 service rng-tools restart
 
 #Setup batch file for gpg to use, for no prompt action
-cat >/vagrant_data/vagrant_key <<EOF
+cat >/vagrant/vagrant_key <<EOF
           %echo Generating a basic OpenPGP key
           Key-Type: DSA
           Key-Length: 1024 
@@ -22,10 +22,19 @@ cat >/vagrant_data/vagrant_key <<EOF
           %echo done
 EOF
 
-#Generate gpg key
-gpg --batch --gen-key /vagrant_data/vagrant_key
-gpg --import vagrant.pub
-gpg --import vagrant.sec
+if [ ! -f "/vagrant/vagrant.pub" ]; then
+  #Generate gpg key
+  gpg --batch --gen-key /vagrant/vagrant_key
+  gpg --import vagrant.pub
+  gpg --import vagrant.sec
+  
+  #Export key to Apt
+  gpg -a --export vagrant > /vagrant/vagrant.pub
+  gpg -a --export-secret-key vagrant > /vagrant/vagrant.sec
+  gpg -a --export vagrant | apt-key add -
 
-#Export key to Apt
-gpg -a --export vagrant | apt-key add -
+else 
+  gpg --import /vagrant/vagrant.pub
+  gpg --allow-secret-key-import /vagrant/vagrant.sec
+fi
+
