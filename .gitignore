@@ -1,2 +1,4 @@
 .vagrant/
 vagrant_key
+vagrant.pub
+vagrant.sec
