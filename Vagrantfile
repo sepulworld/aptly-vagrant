@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     buildRepoServer.vm.network "private_network", ip: "192.168.100.110"
     buildRepoServer.vm.synced_folder "puppet/modules", "/tmp/vagrant-puppet/puppet/modules"
     buildRepoServer.vm.provision "shell", path: "make_vagrant_data.sh" 
-    buildRepoServer.vm.provision "shell", path: "generate_gpg.sh"
+    buildRepoServer.vm.provision "shell", inline: "gpg --allow-secret-key-import --import /vagrant/vagrant.asc"
     buildRepoServer.vm.provision :puppet do |puppet|
       puppet.manifests_path = "puppet/manifests"
       puppet.options = ["--modulepath", "/tmp/vagrant-puppet/puppet/modules"]
@@ -32,7 +32,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       puppet2.module_path = "puppet/modules"
       puppet2.options = ["--modulepath", "/tmp/vagrant/puppet/modules"]
       puppet2.manifest_file  = "site.pp"
-    end 
+    end
+    buildServer1.vm.provision "shell", inline: "gpg --import /vagrant/vagrant.asc" 
     buildServer1.vm.provision "shell", path: "add_aptly_repo.sh"
   end
 end
