@@ -1,28 +1,31 @@
-Vagrant setup to test out Aptly. (http://www.aptly.info/)
+####Vagrant setup to test out Aptly. (http://www.aptly.info/)
 
 Comes with some deb files in ./debs/stable and ./debs/testing
 
-Vagrant provision will setup Aptly repos and publish them to aptly.localhost:8080 precise stable-repo and aptly.localhost:8080 precise-testing testing-repo
+Vagrant will provision 2 Ubuntu VMs.  
 
-Nginx is the frontend.  Accessible via aptly.localhost:8080
-
+* vagrant up
+* vagrant status
 ```
-'vagrant up' will bring up 2 virutal servers.  One is called reposerver and runs your test Aptly repo.  The other is server1 which can install debs from the Aptly repo VM.
-    vagrant up 
+$ vagrant status
+Current machine states:
 
-Vagrant ssh to reposerver
-    vagrant ssh reposerver
-
-Vagrant ssh to client server
-    vagrant ssh server1
+reposerver                running (virtualbox)
+server1                   running (virtualbox)
 ```
 
+reposerver has Aptly configured and 2 repositories published
 ```
-Use 'reposerver' to test your aptly commands and configurations
-Use 'server1' to do your apt-get install
+aptly.localhost:8080 precise stable-repo
+aptly.localhost:8080 precise-testing testing-repo
 ```
 
-Test out Aptly apt repository commands, eg
+server1 is a test VM that you can install packages from the reposerver
+
+Nginx is the frontend for the repository.  Accessible via aptly.localhost:8080
+
+
+Test out Aptly apt repository commands on the reposerver, eg
 
 http://www.aptly.info/examples/
 
