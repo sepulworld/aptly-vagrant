@@ -4,8 +4,6 @@ Comes with some deb files in ./debs/stable and ./debs/testing
 
 Vagrant will provision 2 Ubuntu VMs.  
 
-* vagrant up
-* vagrant status
 ```
 $ vagrant status
 Current machine states:
@@ -18,6 +16,12 @@ reposerver has Aptly configured and 2 repositories published
 ```
 aptly.localhost:8080 precise stable-repo
 aptly.localhost:8080 precise-testing testing-repo
+```
+
+####To start:
+
+```
+vagrant up
 ```
 
 server1 is a test VM that you can install packages from the reposerver
