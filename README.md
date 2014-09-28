@@ -34,3 +34,7 @@ Test out Aptly apt repository commands on the reposerver, eg
 http://www.aptly.info/examples/
 
 
+####TODO:
+
+Setup Jenkins on reposerver for testing build jobs that work with Aptly
+
