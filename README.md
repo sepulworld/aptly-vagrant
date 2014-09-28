@@ -1,4 +1,4 @@
-####Vagrant development environment for Aptly. (http://www.aptly.info/)
+####Vagrant development environment for Aptly (http://www.aptly.info/)
 
 Comes with some deb files in ./debs/stable and ./debs/testing
 
