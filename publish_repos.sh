@@ -27,7 +27,8 @@ if [ ! -d "/vagrant_data/.aptly/public/testing" ]; then
       echo ""
       echo ""
       echo "Aptly publish successful..."
-      echo "Go to http://aptly.localhost:8080/ on your local browser"
+      echo "Go to http://aptly.localhost:8081/ on your local browser packages"
+      echo "Go to http://aptly.localhost:8080/ on your local browser for Jenkins"
       echo "Nginx should be serving up the public directory where your stable and test debs live"
   fi
 fi

@@ -1,0 +1,76 @@
+{
+  "name": "rtyler-jenkins",
+  "version": "1.2.0",
+  "source": "git://github.com/jenkinsci/puppet-jenkins.git",
+  "author": "R. Tyler Croy <tyler@monkeypox.org>",
+  "license": "Apache 2.0",
+  "summary": "Manage the Jenkins continuous integration service with Puppet",
+  "description": "Manage the Jenkins continuous integration service with Puppet",
+  "project_page": "https://github.com/jenkinsci/puppet-jenkins",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 2.0.0"
+    },
+    {
+      "name": "puppetlabs/apt",
+      "version_requirement": ">= 0.0.3"
+    },
+    {
+      "name": "puppetlabs/java",
+      "version_requirement": ">= 1.0.1"
+    },
+    {
+      "name": "darin/zypprepo",
+      "version_requirement": ">= 1.0.1"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "Blimpfile": "13ab19001b34aa7195936f380bec4008",
+    "CHANGELOG.md": "5e10659ddf1ace7902036e0f743b1f75",
+    "Gemfile": "f10d26be2a64ce0e3ffade56b377e139",
+    "Gemfile.lock": "80a340ca243c90ecb1ce0fd75dea21cf",
+    "HACKING.md": "14af8ebeadf4d2486730425c597bedfb",
+    "LICENSE": "7d423e80a51a0320567fc3faa3ce3209",
+    "Modulefile": "dcfdc5a307623ad467cb1b0ebf299f47",
+    "README.md": "346ffdece244988baa0b1be08afd7b8d",
+    "Rakefile": "6fe651e02825b39420046e2b93875c6e",
+    "Vagrantfile": "3039dd79264e5c17249f7e0e8919d63e",
+    "files/jenkins-slave.Debian": "04dcb58118148f4a8bcfcf2a84ad2ddc",
+    "files/jenkins-slave.RedHat": "967b25188ebaae0f3dbcd60e67c22d9d",
+    "files/puppet_helper.groovy": "efaf605a05501205acc74b71aad63629",
+    "lib/facter/jenkins.rb": "36cd2da57f5f56dbe41a869d8d467e8e",
+    "lib/puppet/features/jpm.rb": "395eae348a93688d990e84083e67d99c",
+    "lib/puppet/jenkins/facts.rb": "31cf96559d6a972b1fbba825699a034d",
+    "lib/puppet/jenkins/okjson.rb": "088fb1ca0f58e3cb7919e6fc659b36d0",
+    "lib/puppet/jenkins/plugins.rb": "22711af7e0d4a97743c68a89ea65d238",
+    "lib/puppet/jenkins.rb": "7df35c15d436ccfbfa63105cf8eb6d14",
+    "lib/puppet/provider/package/jpm.rb": "8a2bd877563930853dda8351a38f11ac",
+    "manifests/cli.pp": "4f58acda1a18d724a04ea3e2cf8a5d2e",
+    "manifests/cli_helper.pp": "359d171490bfcee1f5ed2c66852e3a48",
+    "manifests/config.pp": "deb18d0cf30d427921b5579736f5ea25",
+    "manifests/credentials.pp": "6ff6929f33d99c2894b46d6382f01332",
+    "manifests/firewall.pp": "5fe7a2f58ff45da430a95b749c853d38",
+    "manifests/init.pp": "363d96caaade1775c293d815c8f5b0c5",
+    "manifests/master.pp": "d6936162414b2911125aaaee92952124",
+    "manifests/package.pp": "478a8d852c65fdcc11c8ebe3d0a1da06",
+    "manifests/params.pp": "4c193ba2ff00ea15b71b8c07808cb3c9",
+    "manifests/plugin.pp": "b122746928463287c1885be43cd64027",
+    "manifests/plugins.pp": "ea5b8aba54bde779e854c48cbf345bd6",
+    "manifests/proxy.pp": "54db0b432cdd2e951f9d873eb439e6c1",
+    "manifests/repo/debian.pp": "247920a867288652450a954173074c48",
+    "manifests/repo/el.pp": "6515c638c7acea180e7215dc1ff8e415",
+    "manifests/repo/suse.pp": "ae8ab5d4cffcc7a90419fadba0c53ac7",
+    "manifests/repo.pp": "cab54bfa8f7d5a8c00e0c17c47025615",
+    "manifests/security.pp": "d036f099fa136c9d0f6639d83e52bb7c",
+    "manifests/service.pp": "423722b429ec96495f1bb776b5aeb310",
+    "manifests/slave.pp": "b218cee2c58677e9c9000c24bd7f9741",
+    "manifests/sysconfig.pp": "cc069b9c523911c8b90c6262279e0bbf",
+    "manifests/user.pp": "4237c8c7839d712ad1989dcb97210907",
+    "templates/jenkins-slave-defaults.erb": "39e6b3a9428bc4d832a03cf484d51ac8",
+    "templates/proxy.xml.erb": "b10e8a73b23dc537a520632515edd823"
+  }
+}
