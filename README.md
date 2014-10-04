@@ -8,14 +8,8 @@ Vagrant will provision 2 Ubuntu VMs.
 $ vagrant status
 Current machine states:
 
-reposerver                running (virtualbox)
-server1                   running (virtualbox)
-```
-
-reposerver has Aptly configured and 2 repositories published
-```
-aptly.localhost:8080 precise stable-repo
-aptly.localhost:8080 precise-testing testing-repo
+reposerver (Aptly/Jenkins)    running (virtualbox)
+server1                       running (virtualbox)
 ```
 
 ####To start:
@@ -24,17 +18,27 @@ aptly.localhost:8080 precise-testing testing-repo
 vagrant up
 ```
 
+reposerver has Aptly configured and 2 repositories published
+```
+aptly.localhost precise stable-repo
+aptly.localhost precise-testing testing-repo
+```
+
+#### Build custom Jenkins jobs to interact with Aptly repos
+```
+http://aptly.localhost:8080
+```
+
 server1 is a test VM that you can install packages from the reposerver
 
-Nginx is the frontend for the repository.  Accessible via aptly.localhost:8080
+Test out Aptly apt repository commands on the reposerver (vagrant ssh; sudo -i)
 
-
-Test out Aptly apt repository commands on the reposerver, eg
-
-http://www.aptly.info/examples/
+http://www.aptly.info/examples/ <--- Example commands found here.
 
 
 ####TODO:
 
-Setup Jenkins on reposerver for testing build jobs that work with Aptly
+~~Setup Jenkins on reposerver for testing build jobs that work with Aptly~~
+Configure example Jenkins build jobs that use Aptly for automated packaging, snapshots and repo publishing
+
 
