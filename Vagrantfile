@@ -20,7 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       puppet.options = ["--modulepath", "/tmp/vagrant-puppet/puppet/modules"]
       puppet.manifest_file  = "site.pp"
     end
-    buildRepoServer.vm.network "forwarded_port", guest: 80, host: 8080
+    buildRepoServer.vm.network "forwarded_port", guest: 80, host: 8081
+    buildRepoServer.vm.network "forwarded_port", guest: 8080, host: 8080
     buildRepoServer.vm.provision "shell", path: "publish_repos.sh"
   end
 
