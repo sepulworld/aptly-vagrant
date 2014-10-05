@@ -2,6 +2,7 @@
 
 # version = 'installed' (Default)
 #   Will NOT update jenkins to the most recent version.
+#
 # version = 'latest'
 #    Will automatically update the version of jenkins to the current version available via your package manager.
 #
@@ -19,8 +20,14 @@
 #   this module.
 #   This is for folks that use a custom repo, or the like.
 #
+# service_enable = true (default)
+#   Enable (or not) the jenkins service
+#
+# service_ensure = 'running' (default)
+#   Status of the jenkins service.  running, stopped
+#
 # config_hash = undef (Default)
-# Hash with config options to set in sysconfig/jenkins defaults/jenkins
+#   Hash with config options to set in sysconfig/jenkins defaults/jenkins
 #
 # Example use
 #
@@ -75,6 +82,11 @@
 #     such as the user and credentials types, and the security class
 #   - CLI installation (both implicit and explicit) requires the unzip command
 #
+#
+# proxy_host = undef (default)
+# proxy_port = undef (default)
+#   If your environment requires a proxy host to download plugins it can be configured here
+#
 class jenkins(
   $version            = $jenkins::params::version,
   $lts                = $jenkins::params::lts,
@@ -83,6 +95,7 @@ class jenkins(
   $service_ensure     = $jenkins::params::service_ensure,
   $config_hash        = {},
   $plugin_hash        = {},
+  $job_hash           = {},
   $configure_firewall = undef,
   $install_java       = $jenkins::params::install_java,
   $proxy_host         = undef,
@@ -114,6 +127,7 @@ class jenkins(
   include jenkins::package
   include jenkins::config
   include jenkins::plugins
+  include jenkins::jobs
 
   if $proxy_host and $proxy_port {
     class { 'jenkins::proxy':
@@ -131,6 +145,7 @@ class jenkins(
       include jenkins::firewall
     }
   }
+
   if $cli {
     include jenkins::cli
   }
@@ -138,9 +153,18 @@ class jenkins(
   Anchor['jenkins::begin'] ->
     Class['jenkins::package'] ->
       Class['jenkins::config'] ->
-        Class['jenkins::plugins']~>
+        Class['jenkins::plugins'] ~>
           Class['jenkins::service'] ->
+            Class['jenkins::jobs'] ->
               Anchor['jenkins::end']
+
+  if $cli {
+    Anchor['jenkins::begin'] ->
+      Class['jenkins::service'] ->
+        Class['jenkins::cli'] ->
+          Class['jenkins::jobs'] ->
+            Anchor['jenkins::end']
+  }
 
   if $install_java {
     Anchor['jenkins::begin'] ->
