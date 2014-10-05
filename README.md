@@ -29,7 +29,7 @@ aptly.localhost precise-testing testing-repo
 http://aptly.localhost:8080
 ```
 
-#### Add new Jenkins build jobs
+#### Add new Jenkins build jobs:
 
 Add job here:  puppet/modules/jenkins_jobs/manifests/  (See Example in directory, voltdb-php-client.pp)
 Add job xml configuration here: puppet/modules/jenkins_jobs/templates/<job_name>.xml.erb
@@ -50,6 +50,5 @@ http://www.aptly.info/examples/ <--- Example commands found here.
 
 ~~Setup Jenkins on reposerver for testing build jobs that work with Aptly~~
 
-Configure example Jenkins build jobs that use Aptly for automated packaging, snapshots and repo publishing
-
+Setup example Jenkins build job that interacts with Aptly
 
