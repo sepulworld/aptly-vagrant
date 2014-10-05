@@ -6,24 +6,37 @@
 #   Content of the config file for this plugin. It is up to the caller to
 #   create this content from a template or any other mean.
 #
+# update_url = undef
+#   
 define jenkins::plugin(
-  $version=0,
+  $version         = 0,
   $manage_config   = false,
   $config_filename = undef,
   $config_content  = undef,
+  $update_url      = undef,
 ) {
+  include ::jenkins::params
 
   $plugin            = "${name}.hpi"
   $plugin_dir        = '/var/lib/jenkins/plugins'
   $plugin_parent_dir = inline_template('<%= @plugin_dir.split(\'/\')[0..-2].join(\'/\') %>')
-  validate_bool ($manage_config)
+  validate_bool($manage_config)
+  # TODO: validate_str($update_url)
 
   if ($version != 0) {
-    $base_url = "http://updates.jenkins-ci.org/download/plugins/${name}/${version}/"
+    $plugins_host = $update_url ? {
+      undef   => $::jenkins::params::default_plugins_host,
+      default => $update_url,
+    }
+    $base_url = "${plugins_host}/download/plugins/${name}/${version}/"
     $search   = "${name} ${version}(,|$)"
   }
   else {
-    $base_url = 'http://updates.jenkins-ci.org/latest/'
+    $plugins_host = $update_url ? {
+      undef   => $::jenkins::params::default_plugins_host,
+      default => $update_url,
+    }
+    $base_url = "${plugins_host}/latest/"
     $search   = "${name} "
   }
 
@@ -70,8 +83,7 @@ define jenkins::plugin(
   }
 
   if (empty(grep([ $::jenkins_plugins ], $search))) {
-
-    if ($jenkins::proxy_host){
+    if ($jenkins::proxy_host) {
       Exec {
         environment => [
           "http_proxy=${jenkins::proxy_host}:${jenkins::proxy_port}",
@@ -91,8 +103,9 @@ define jenkins::plugin(
       before  => Exec["download-${name}"],
     }
 
+
     exec { "download-${name}" :
-      command => "rm -rf ${name} ${name}.* && wget --no-check-certificate ${base_url}${plugin}",
+      command => "rm -rf ${name} ${name}.hpi ${name}.jpi && wget --no-check-certificate ${base_url}${plugin}",
       cwd     => $plugin_dir,
       require => [File[$plugin_dir], Package['wget']],
       path    => ['/usr/bin', '/usr/sbin', '/bin'],
