@@ -9,6 +9,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
   config.vm.provider "virtualbox"
 
+# Update puppet to version 3.7.1 before using puppet provisioning.
+config.vm.provision :shell, path: "update_puppet.sh"
+
 # Setup Aptly Repo VM 
   config.vm.define "reposerver" do |buildRepoServer|
     buildRepoServer.vm.network "private_network", ip: "192.168.100.110"
