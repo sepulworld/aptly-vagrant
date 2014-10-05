@@ -29,6 +29,16 @@ aptly.localhost precise-testing testing-repo
 http://aptly.localhost:8080
 ```
 
+#### Add new Jenkins build jobs
+
+Add job here:  puppet/modules/jenkins_jobs/manifests/  (See Example in directory, voltdb-php-client.pp)
+Add job xml configuration here: puppet/modules/jenkins_jobs/templates/<job_name>.xml.erb
+
+Then run
+```
+vagrant provision reposerver
+```
+
 server1 is a test VM that you can install packages from the reposerver
 
 Test out Aptly apt repository commands on the reposerver (vagrant ssh; sudo -i)
