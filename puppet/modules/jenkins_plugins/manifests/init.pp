@@ -3,5 +3,6 @@ class jenkins_plugins {
 
   include jenkins_plugins::plugins
   include jenkins_plugins::sshkeys
+  include jenkins_plugins::packages
 
 }
