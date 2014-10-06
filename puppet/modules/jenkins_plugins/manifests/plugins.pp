@@ -6,6 +6,10 @@ class jenkins_plugins::plugins {
   }
 
   jenkins::plugin {
+    "vagrant" : ;
+  }
+  
+  jenkins::plugin {
     "parameterized-trigger" : ;
   }
 
