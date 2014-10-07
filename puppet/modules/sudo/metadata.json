@@ -1,0 +1,14 @@
+{
+  "name": "saz-sudo",
+  "version": "3.0.9",
+  "author": "saz",
+  "summary": "UNKNOWN",
+  "license": "Apache License, Version 2.0",
+  "source": "UNKNOWN",
+  "project_page": "https://github.com/saz/puppet-sudo",
+  "issues_url": null,
+  "description": "Manage sudo configuration via Puppet",
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 2.3.0"}
+  ]
+}
