@@ -9,6 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
   config.vm.provider "virtualbox" do |v|
     v.memory = 1024
+    v.cpu = 2
   end
 # Update puppet to version 3.7.1 before using puppet provisioning.
 config.vm.provision :shell, path: "update_puppet.sh"
