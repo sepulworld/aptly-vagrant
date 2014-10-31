@@ -12,6 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.cpus = 2
   end
 # Update puppet to version 3.7.1 before using puppet provisioning.
+config.vm.provision :shell, path: "setup_apt_mirrors.sh"
 config.vm.provision :shell, path: "update_puppet.sh"
 
 # Setup Aptly Repo VM 
