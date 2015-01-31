@@ -10,11 +10,11 @@ else
   apt-get update
 fi
 
-if [ "$(dpkg-query -W -f='${source:Package}${Version}' puppet)" = '3.7.1-1puppetlabs1' ]; then
+if $(dpkg --compare-versions "$(dpkg-query -W -f='${source:Package}${Version}' puppet)" ge '3.7.1-1puppetlabs1') ; then
   echo "Puppet version set to 3.7.1-1puppetlabs1"
 else
   echo "Puppet needs to be upgraded..."
-  apt-get install -y puppet=3.7.1-1puppetlabs1
+  apt-get install -y puppet
   # Remove template dir reference, depreciated in Puppet 3.7
 fi
 

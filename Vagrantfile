@@ -12,13 +12,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.cpus = 2
   end
 # Update puppet to version 3.7.1 before using puppet provisioning.
+config.vm.provision :shell, path: "setup_apt_mirrors.sh"
 config.vm.provision :shell, path: "update_puppet.sh"
 
 # Setup Aptly Repo VM 
   config.vm.define "reposerver" do |buildRepoServer|
     buildRepoServer.vm.network "private_network", ip: "192.168.100.110"
     buildRepoServer.vm.synced_folder "puppet/modules", "/tmp/vagrant-puppet/puppet/modules"
-    buildRepoServer.vm.provision "shell", path: "make_vagrant_data.sh" 
+    buildRepoServer.vm.provision "shell", path: "make_vagrant_data.sh"
+    buildRepoServer.vm.provision "shell", path: "install_build_tools.sh"
     buildRepoServer.vm.provision "shell", path: "generate_gpg.sh"
     buildRepoServer.vm.provision :puppet do |puppet|
       puppet.manifests_path = "puppet/manifests"
