@@ -45,10 +45,16 @@ Test out Aptly apt repository commands on the reposerver (vagrant ssh; sudo -i)
 
 http://www.aptly.info/examples/ <--- Example commands found here.
 
+#### Aptly API interactions
+
+Aptly API running on reposerver on port 8082
+
+```
+curl http://aptly.localhost:8082/api/repos/stable-repo
+curl http://aptly.localhost:8082/api/repos
+```
 
 ####TODO:
 
-~~Setup Jenkins on reposerver for testing build jobs that work with Aptly~~
-
-Setup example Jenkins build job that interacts with Aptly
+Setup example Jenkins build job that interacts with Aptly API
 
