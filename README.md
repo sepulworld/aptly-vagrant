@@ -53,6 +53,7 @@ Aptly API running on reposerver port 8082
 curl http://aptly.localhost:8082/api/repos/stable-repo
 curl http://aptly.localhost:8082/api/repos
 ```
+More API commands found in beta docs: http://beta.aptly.info/doc/api/
 
 ####TODO:
 
