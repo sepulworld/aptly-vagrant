@@ -55,7 +55,7 @@ class aptly (
   if $repo {
     apt::source { 'aptly':
       location    => 'http://repo.aptly.info',
-      release     => 'squeeze',
+      release     => 'nightly',
       repos       => 'main',
       key_server  => $key_server,
       key         => '2A194991',
