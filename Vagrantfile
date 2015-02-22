@@ -29,6 +29,7 @@ config.vm.provision :shell, path: "update_puppet.sh"
     end
     buildRepoServer.vm.network "forwarded_port", guest: 80, host: 8081
     buildRepoServer.vm.network "forwarded_port", guest: 8080, host: 8080
+    buildRepoServer.vm.network "forwarded_port", guest: 8082, host: 8082
     buildRepoServer.vm.provision "shell", path: "publish_repos.sh"
   end
 
