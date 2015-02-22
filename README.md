@@ -47,7 +47,7 @@ http://www.aptly.info/examples/ <--- Example commands found here.
 
 #### Aptly API interactions
 
-Aptly API running on reposerver on port 8082
+Aptly API running on reposerver port 8082
 
 ```
 curl http://aptly.localhost:8082/api/repos/stable-repo
