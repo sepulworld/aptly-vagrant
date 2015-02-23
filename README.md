@@ -55,7 +55,3 @@ curl http://aptly.localhost:8082/api/repos
 ```
 More API commands found in beta docs: http://beta.aptly.info/doc/api/
 
-####TODO:
-
-Setup example Jenkins build job that interacts with Aptly API
-
