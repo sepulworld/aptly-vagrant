@@ -3,6 +3,6 @@ class aptly::service {
 
   service { 'aptly-api':
       ensure  => running,
-      require => File['/etc/init/aptly-api.conf'],
+      require => [Package["aptly"],File['/etc/init/aptly-api.conf']],
   }
 }
