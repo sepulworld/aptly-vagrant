@@ -54,7 +54,3 @@ curl http://aptly.localhost:8082/api/repos/stable-repo
 curl http://aptly.localhost:8082/api/repos
 ```
 
-####TODO:
-
-Setup example Jenkins build job that interacts with Aptly API
-
