@@ -28,7 +28,7 @@ define aptly::repo(
 
   exec{ "aptly_repo_create-${title}":
     command => "${aptly_cmd} create ${component_arg} ${title}",
-    unless  => "${aptly_cmd} show ${title} >/dev/null",
+    unless  => '/bin/bash -c "test -d /vagrant_data/.aptly/public/stable" && /bin/bash -c "test -d /vagrant_data/.aptly/public/testing"',
     user    => $::aptly::user,
     require => [
       Class['aptly'],
