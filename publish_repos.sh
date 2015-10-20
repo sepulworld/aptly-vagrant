@@ -2,6 +2,7 @@
 
 aptly repo add stable-repo /vagrant/debs/stable/
 aptly repo add testing-repo /vagrant/debs/testing/
+aptly repo add rocksoftware22 /vagrant/debs/stable/
 
 
 if [ ! -d "/vagrant_data/.aptly/public/stable" ]; then
