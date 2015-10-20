@@ -5,3 +5,5 @@ if [ -e '/root/.gnupg/trustdb.gpg' ]; then
 else
     gpg --allow-secret-key-import --import /vagrant/vagrant.asc
 fi
+
+echo "DONE... generate_gpg.sh"
