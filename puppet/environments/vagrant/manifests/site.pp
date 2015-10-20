@@ -8,7 +8,7 @@ include nginx
 include apt
 include aptly_vagrant
 include zypprepo
-include jenkins
+class { 'jenkins': cli_tries => 15, cli_try_sleep => 15 }
 include jenkins_plugins
 include jenkins_plugins::configure
 include jenkins_jobs::voltdb_php_client

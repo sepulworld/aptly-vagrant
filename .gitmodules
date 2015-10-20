@@ -1,3 +1,6 @@
 [submodule "puppet/environments/vagrant/modules/aptly"]
 	url = https://github.com/gds-operations/puppet-aptly.git
 	path = puppet/environments/vagrant/modules/aptly
+[submodule "puppet/environments/vagrant/modules/jenkins"]
+	path = puppet/environments/vagrant/modules/jenkins
+	url = https://github.com/jenkinsci/puppet-jenkins.git
