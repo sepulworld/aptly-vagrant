@@ -5,13 +5,11 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "puppetlabs/ubuntu-12.04-64-puppet"
+  config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
   config.vm.provider "virtualbox" do |v|
     v.memory = 2048 
     v.cpus = 2
   end
-# Update puppet to version 3.7.1 before using puppet provisioning.
-config.vm.provision :shell, path: "setup_apt_mirrors.sh"
 
 # Setup Aptly Repo VM 
   config.vm.define "reposerver" do |buildRepoServer|
