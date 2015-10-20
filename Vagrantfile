@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "puppetlabs/ubuntu-12.04-64-puppet"
   config.vm.provider "virtualbox" do |v|
-    v.memory = 1024
+    v.memory = 2048 
     v.cpus = 2
   end
 # Update puppet to version 3.7.1 before using puppet provisioning.
@@ -23,6 +23,8 @@ config.vm.provision :shell, path: "setup_apt_mirrors.sh"
     buildRepoServer.vm.provision :puppet do |puppet|
       puppet.environment = "vagrant"
       puppet.environment_path = "puppet/environments"
+      puppet.manifest_file = "site.pp"
+      puppet.manifests_path = "puppet/environments/vagrant/manifests"
     end
     buildRepoServer.vm.network "forwarded_port", guest: 80, host: 8081
     buildRepoServer.vm.network "forwarded_port", guest: 8080, host: 8080
@@ -37,6 +39,8 @@ config.vm.provision :shell, path: "setup_apt_mirrors.sh"
     buildServer1.vm.provision :puppet do |puppet|
       puppet.environment = "vagrant"
       puppet.environment_path = "puppet/environments"
+      puppet.manifest_file = "site_server.pp"
+      puppet.manifests_path = "puppet/environments/vagrant/manifests"
     end
     buildServer1.vm.provision "shell", inline: "gpg --import /vagrant/vagrant.asc" 
     buildServer1.vm.provision "shell", path: "add_aptly_repo.sh"

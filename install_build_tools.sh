@@ -7,3 +7,5 @@ if [ $(dpkg-query -W -f='${Status}' build-essential 2>/dev/null | grep -c "ok in
 else
   echo "Build tools already installed."
 fi
+
+echo "DONE... install_build_tools.sh"
