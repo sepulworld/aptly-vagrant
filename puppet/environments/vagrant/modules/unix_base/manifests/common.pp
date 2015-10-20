@@ -24,12 +24,24 @@ class unix_base::common inherits unix_base {
   if $::operatingsystem == "Ubuntu" {
     $vim_pkg = 'vim'
     $git_pkg = 'git-core'
+    $ruby    = 'ruby1.9.1'
+    $rubydev = 'ruby1.9.1-dev'
   }
 #################################################
 
   # diagnostic packages
 
   package { 'lsof' :
+    ensure  => installed,
+    require => Exec['apt-get-update-tmp'],
+  }
+  
+  package { $ruby :
+    ensure  => installed,
+    require => Exec['apt-get-update-tmp'],
+  }
+  
+  package { $rubydev :
     ensure  => installed,
     require => Exec['apt-get-update-tmp'],
   }
