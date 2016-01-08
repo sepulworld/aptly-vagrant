@@ -13,6 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 # Setup Aptly Repo VM 
   config.vm.define "reposerver" do |buildRepoServer|
+    buildRepoServer.vm.hostname = "reposerver"
     buildRepoServer.vm.network "private_network", ip: "192.168.100.110"
     buildRepoServer.vm.synced_folder "puppet/environments/vagrant/modules", "/tmp/vagrant-puppet/puppet/modules"
     buildRepoServer.vm.provision "shell", path: "make_vagrant_data.sh"
@@ -32,6 +33,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 # Setup server1 which will have Aptly repos in sources.list.d
   config.vm.define "server1" do |buildServer1|
+    buildServer1.vm.hostname = "server1"
     buildServer1.vm.network "private_network", ip: "192.168.100.111"
     buildServer1.vm.synced_folder "puppet/environments/vagrant/modules", "/tmp/vagrant-puppet/puppet/modules"
     buildServer1.vm.provision :puppet do |puppet|
