@@ -2,3 +2,4 @@
 vagrant_key
 vagrant.pub
 vagrant.sec
+puppet/environments/vagrant/modules

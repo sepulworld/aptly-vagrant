@@ -1,5 +1,5 @@
 name    'darin/zypprepo'
-version '1.0.1'
+version '1.0.2'
 source 'git://github.com/deadpoint/puppet-zypprepo.git'
 author 'darin'
 license 'ASL2'

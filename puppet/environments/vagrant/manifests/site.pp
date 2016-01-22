@@ -2,7 +2,7 @@
 #     Site.pp
 
 include stdlib
-include vagrant
+include vagrant_puppet
 include unix_base
 include nginx 
 include apt

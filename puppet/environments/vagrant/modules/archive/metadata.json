@@ -7,10 +7,10 @@
   "source": "https://github.com/camptocamp/puppet-archive",
   "project_page": "https://github.com/camptocamp/puppet-archive",
   "issues_url": "https://github.com/camptocamp/puppet-archive/issues",
-  "dependencies": [
-  
-  ],
   "description": "Archive Module for Puppet",
+  "dependencies": [
+
+  ],
   "operatingsystem_support": [
     {
       "operatingsystem": "Debian",

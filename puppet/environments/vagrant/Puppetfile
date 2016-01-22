@@ -1,0 +1,59 @@
+mod 'apt',
+  :git => 'https://github.com/puppetlabs/puppetlabs-apt',
+  :ref => '1.8.0'
+
+mod 'aptly',
+  :git => 'https://github.com/gds-operations/puppet-aptly',
+  :ref => 'v0.4.0'
+
+mod 'archive',
+  :git => 'https://github.com/camptocamp/puppet-archive',
+  :ref => '0.8.1'
+
+mod 'concat',
+  :git => 'https://github.com/puppetlabs/puppetlabs-concat',
+  :ref => '1.0.4'
+
+mod 'java',
+  :git => 'https://github.com/puppetlabs/puppetlabs-java',
+  :ref => '1.1.2'
+
+mod 'jenkins',
+  :git => 'https://github.com/jenkinsci/puppet-jenkins',
+  :ref => 'v1.6.0'
+
+mod 'nginx',
+  :git => 'https://github.com/jfryman/puppet-nginx',
+  :ref => 'v0.0.10'
+
+mod 'stdlib',
+  :git => 'https://github.com/puppetlabs/puppetlabs-stdlib',
+  :ref => '4.3.2'
+
+mod 'sudo',
+  :git => 'https://github.com/saz/puppet-sudo',
+  :ref => 'v3.0.9'
+
+mod 'zypprepo',
+  :git => 'https://github.com/deadpoint/puppet-zypprepo',
+  :ref => 'master'
+
+mod 'aptly_vagrant',
+  :git => 'https://github.com/sepulworld/aptly_vagrant',
+  :ref => '0.0.1'
+
+mod 'vagrant_puppet',
+  :git => 'https://github.com/sepulworld/vagrant_puppet',
+  :ref => '0.0.1'
+
+mod 'jenkins_jobs',
+  :git => 'https://github.com/sepulworld/jenkins_jobs',
+  :ref => '0.0.1'
+
+mod 'jenkins_plugins',
+  :git => 'https://github.com/sepulworld/jenkins_plugins',
+  :ref => '0.0.1'
+
+mod 'unix_base',
+  :git => 'https://github.com/sepulworld/unix_base',
+  :ref => '0.0.1'
