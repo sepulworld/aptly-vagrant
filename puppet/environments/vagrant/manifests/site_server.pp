@@ -1,5 +1,5 @@
 ###################################
 #     Site.pp
 
-include vagrant
+include vagrant_puppet
 include unix_base

@@ -1,5 +1,13 @@
 ####Vagrant development environment for Aptly (http://www.aptly.info/)
 
+Requires r10k
+
+```
+gem install r10k
+cd aptly-vagrant/puppet/environments/vagrant
+r10k puppetfile install
+```
+
 Comes with some deb files in ./debs/stable and ./debs/testing
 
 Vagrant will provision 2 Ubuntu VMs.  
